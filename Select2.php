@@ -309,19 +309,21 @@ class Select2 extends InputWidget
         }
         if (is_array($prepend)) {
             $content = ArrayHelper::getValue($prepend, 'content', '');
+	        $prepend = Html::tag('span', $content, ['class' => 'input-group-text']);
             if (isset($prepend['asButton']) && $prepend['asButton'] == true) {
-                $prepend = Html::tag('div', $content, ['class' => 'input-group-btn']);
+                $prepend = Html::tag('div', $prepend, ['class' => 'input-group-btn']);
             } else {
-                $prepend = Html::tag('span', $content, ['class' => 'input-group-addon']);
+                $prepend = Html::tag('div', $prepend, ['class' => 'input-group-prepend']);
             }
             Html::addCssClass($group, 'select2-bootstrap-prepend');
         }
         if (is_array($append)) {
             $content = ArrayHelper::getValue($append, 'content', '');
+	        $prepend = Html::tag('span', $content, ['class' => 'input-group-text']);
             if (isset($append['asButton']) && $append['asButton'] == true) {
-                $append = Html::tag('div', $content, ['class' => 'input-group-btn']);
+                $append = Html::tag('div', $prepend, ['class' => 'input-group-btn']);
             } else {
-                $append = Html::tag('span', $content, ['class' => 'input-group-addon']);
+                $append = Html::tag('div', $prepend, ['class' => 'input-group-append']);
             }
             Html::addCssClass($group, 'select2-bootstrap-append');
         }
