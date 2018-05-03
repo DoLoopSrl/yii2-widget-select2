@@ -319,11 +319,11 @@ class Select2 extends InputWidget
         }
         if (is_array($append)) {
             $content = ArrayHelper::getValue($append, 'content', '');
-	        $prepend = Html::tag('span', $content, ['class' => 'input-group-text']);
+	        $append = Html::tag('span', $content, ['class' => 'input-group-text']);
             if (isset($append['asButton']) && $append['asButton'] == true) {
-                $append = Html::tag('div', $prepend, ['class' => 'input-group-btn']);
+                $append = Html::tag('div', $append, ['class' => 'input-group-btn']);
             } else {
-                $append = Html::tag('div', $prepend, ['class' => 'input-group-append']);
+                $append = Html::tag('div', $append, ['class' => 'input-group-append']);
             }
             Html::addCssClass($group, 'select2-bootstrap-append');
         }
